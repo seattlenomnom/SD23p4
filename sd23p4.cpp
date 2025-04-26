@@ -61,11 +61,12 @@
 
 class MyClass
 {
+    private:
+        int x;
+        double d;
     public:
-        MyClass()
-        {
-            std::cout << "Default constructor invoked." << '\n';
-        }
+        MyClass(int xx, double dd);
+        void printdata();
 };
 
 
@@ -75,9 +76,8 @@ class MyClass
 
 int main() {
 
-    MyClass o;           // default constructor invoked
-
-
+    MyClass o{123, 456.789};           // invoke user provided constructor
+    o.printdata();
 
 
 
@@ -92,6 +92,15 @@ int main() {
 
 /* method definitions  */
 
+MyClass::MyClass(int xx, double dd) : x{xx}, d{dd}
+{
+
+}
+
+void MyClass::printdata()
+{
+    std::cout << "x is: " << x << ", d is: " << d << '\n';
+}
 
 
 
